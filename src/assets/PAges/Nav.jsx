@@ -3,22 +3,38 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <div>
-      <div className="flex justify-between items-center bg-emerald-900 h-[80px] text-white p-4 my-4">
-<h1 class='font-bold text-4xl mx-10' >Prodevopz</h1>
-            <ul className="flex gap-6 mr-4">
+    <nav className="bg-emerald-900 text-white shadow-md">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center h-[80px]">
+        <h1 className="text-4xl font-bold font-poppins">Prodevopz</h1>
+
+        <ul className="hidden md:flex space-x-8">
           <li>
-            <Link to="/" className="font-Teko text-3xl text-white font-bold  hover:text-yellow-400">Home</Link>
+            <Link
+              to="/"
+              className="text-2xl font-semibold hover:text-yellow-400 transition-all"
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/Projects" className="font-Teko text-3xl text-white font-bold hover:text-yellow-400">Projects</Link>
+            <Link
+              to="/Projects"
+              className="text-2xl font-semibold hover:text-yellow-400 transition-all"
+            >
+              Projects
+            </Link>
           </li>
           <li>
-            <Link to="/Contact" className="font-poppins text-3xl text-white font-bold   hover:text-yellow-400">Contact</Link>
+            <Link
+              to="/Contact"
+              className="text-2xl font-semibold hover:text-yellow-400 transition-all"
+            >
+              Contact
+            </Link>
           </li>
         </ul>
       </div>
-      </div>
+    </nav>
   );
 };
 
