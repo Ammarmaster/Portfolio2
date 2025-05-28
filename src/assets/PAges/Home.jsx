@@ -1,41 +1,58 @@
-import React from 'react';
+import React from "react";
+import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const Home = () => {
+export default function Home() {
   return (
-    <div>
-      {/* HERO SECTION */}
-      <div className="bg-black h-screen flex flex-col justify-center items-center text-center px-4">
-        <h1 className="text-emerald-400 font-bold text-xl sm:text-2xl underline hover:text-cyan-500 mb-4">
-          <a href="#about">ABOUT</a>
-        </h1>
-        <h1 className="text-white text-4xl sm:text-5xl font-bold">
-          MD <span className="text-emerald-300">Jalaluddin</span> Master
-        </h1>
-        <div className="mt-8 flex flex-col items-center">
-          <h3 className="text-amber-50 text-sm sm:text-base">Scroll Down</h3>
-        </div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex flex-col justify-center items-center px-4">
+      <motion.h1
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        className="text-5xl md:text-7xl font-extrabold text-center bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 bg-clip-text text-transparent mb-10"
+      >
+        Welcome to Prodevopz
+      </motion.h1>
 
-      {/* ABOUT SECTION */}
-      <div className="bg-emerald-700 min-h-screen px-4 py-10">
-        <h1
-          id="about"
-          className="text-emerald-50 text-center font-extrabold text-2xl sm:text-3xl hover:text-black mb-10"
+      <Tilt
+        tiltMaxAngleX={15}
+        tiltMaxAngleY={15}
+        perspective={1000}
+        transitionSpeed={1000}
+        scale={1.05}
+        className="w-full md:w-[500px] bg-gradient-to-tr from-emerald-900 via-black to-emerald-700 rounded-3xl shadow-lg p-6"
+      >
+        <motion.div
+          initial={{ y: 80, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="text-center"
         >
-          ABOUT
-        </h1>
+          <p className="text-xl text-gray-300 mb-4">
+            👋 Hello, I’m <span className="text-yellow-400 font-bold">Md Jalaluddin</span>, also known as{" "}
+            <span className="text-pink-400 font-bold">Prodevopz</span>.
+          </p>
+          <p className="text-gray-400 mb-4">
+            I'm a passionate full-stack developer creating modern, responsive, and intuitive web and mobile experiences.
+          </p>
+          <Link
+            to="/Projects"
+            className="mt-4 inline-block bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-2 px-6 rounded-lg transition-all duration-300 shadow-lg"
+          >
+            View My Projects
+          </Link>
+        </motion.div>
+      </Tilt>
 
-        <div className="text-center space-y-8">
-          <h3 className="font-bold text-2xl sm:text-4xl md:text-5xl text-blue-100">
-            Hey, I am a BCA Student from RCUB University
-          </h3>
-          <h1 className="font-bold text-2xl sm:text-4xl md:text-5xl text-neutral-900">
-            Software Developer
-          </h1>
-        </div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-10 animate-bounce text-sm text-gray-500"
+      >
+        Scroll down for more ↓
+      </motion.div>
     </div>
   );
-};
-
-export default Home;
+}
